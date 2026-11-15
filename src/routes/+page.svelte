@@ -4,11 +4,11 @@
 
 	const links = [
 		...(hasResume ? [{ label: 'Resume', href: '/resume.pdf' }] : []),
-		{ label: 'Email', href: 'mailto:wolmstead@ucsd.edu' },
 		{ label: 'GitHub', href: 'https://github.com/olmsteadv5' },
-		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/william-olmstead-83a4792b7/' },
-		{ label: 'Robolyst', href: 'https://robolyst.org/team-management' }
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/william-olmstead-83a4792b7/' }
 	];
+
+	const emails = ['website@williamolmstead.com', 'william.olmstead@yale.edu', 'wolmstead@ucsd.edu'];
 </script>
 
 <svelte:head>
@@ -31,6 +31,14 @@
 			>
 		{/each}
 	</nav>
+
+	<ul class="mt-6 flex flex-col items-center gap-1 text-neutral-600 dark:text-neutral-400">
+		{#each emails as email (email)}
+			<li>
+				<a href="mailto:{email}" class="transition-colors hover:text-current">{email}</a>
+			</li>
+		{/each}
+	</ul>
 
 	<footer class="absolute bottom-6 text-sm text-neutral-500">Improved website coming soon</footer>
 </main>
